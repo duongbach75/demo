@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-spring
+  labels:
+    app: demospring-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demospring-app
+  template:
+    metadata:
+      labels:
+        app: demospring-app
+    spec:
+      containers:
+      - name: demospring-app
+        image: bachdh/demo-spring
+        ports:
+        - containerPort: 8090
